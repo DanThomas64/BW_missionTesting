@@ -1,0 +1,39 @@
+Stuff to collect in the report itself:
+
+informaiton from a weapon
+
+class = "arifle_MX_GL_F";   //Class name
+displayName = "MX 3GL"  //Display name
+dispersion=0.00029;     //General Accuracy - radians
+autoFire = 1;   // Is automatic
+configfile >> "CfgWeapons" >> "arifle_MX_GL_F" >> "Single" >> "dispersion" // Accuracy single fire
+if autoFire = 1
+    configfile >> "CfgWeapons" >> "arifle_MX_GL_F" >> "FullAuto"
+    dispersion =
+initSpeed = -0.97222 // Overwrite of the cfgMagizines value if +ve. if -ve becomes a multipliier of cfgMagizines value, 0 means use cfgMagazines value
+muzzles[] = //if 2 items in array then has a GL
+mass =  -- configfile >> "CfgWeapons" >> "arifle_MX_GL_F" >> "WeaponSlotsInfo" >> "mass"
+magazines[] = //default Mag
+magazineWell[] = array of mag classes that fit the given weapon.
+
+for GL --
+
+if count muzzles = 2
+_gl = muzzles select 1;
+configfile >> "CfgWeapons" >> "arifle_MX_GL_F" >> _gl >> *value as below*
+descriptionShort
+displayName
+magazines[] = //default Mag (from cfgMagazines)
+magazineWell[] = array of mag classes that fit the given weapon. (from cfgMagazineWell)
+initSpeed
+
+informaiton from magazine
+
+
+ammo = //class of the ammo in mag
+displayName = //Long display name
+displayNameShort = "7.62mm";
+initSpeed = //Speed leaving barrel
+count = //Number of rounds in Mag
+
+Tracer Colour? Can this be output?

@@ -1,0 +1,120 @@
+[size=200][u][b]Mission : [color=#FF4000]Mission Name Here[/color][/b][/u]   [b][u]Type : [color=#FF4000]COOP/TVT[/color][/u][/b]
+
+[u][b]Version : [color=#FF4000]Mission Version[/color][/b][/u][/size]
+
+[size=150]Mission Maker : [color=#FF4000]Mission Maker Name Here[/color] Mission Tester : [color=#FF4000]Mission Tester Name Here[/color][/size]
+
+[size=150]Mission Tags : [color=#FF4000]Tag1,Tag2,Tag3[/color] Player Count : [color=#FF4000]40[/color][/size]
+
+[size=150]Custom Scripting : [color=#FF0000]O[/color] Custom Loadout : [color=#00FF00]X[/color] Player Vics : [color=#FFFF00]NA[/color] Something : [color=#FF0000]O[/color][/size]
+
+[size=200]Test Result : [color=#00FF00]PASS[/color][/size]
+
+[size=150][u][color=#00BFFF]Pre-mission Checklist[/color][/u] [color=#00FF00]PASS[/color][/size]
+
+[spoiler=Pre-mission Checklist + Notes]
+
+[list]
+
+[*]Ensure only slots that are meant to be played are in the mission. :  [color=#00FF00]X[/color]
+
+[*]Do a quick sanity check of the ratio. : [color=#00FF00]X[/color]
+
+[*]Make sure the mission description isn't confusing/vague. : [color=#00FF00]X[/color]
+
+[*]Read the briefings make sure they exist and are clear. : [color=#00FF00]X[/color]
+
+[*]Make sure objectives are marked. : [color=#00FF00]X[/color]
+
+[*]Take a quick look at the map for terrain imbalances, and make sure the mission maker has taken them into account (I.E.
+defenders need better gear and/or more people if they're defending a bowl that has sparse cover). : [color=#00FF00]X[/color]
+
+[*]Ensure there is a signals tab, and the channel names make sense for the mission. : [color=#00FF00]X[/color]
+
+[*]Ensure that if it is a night mission it is tagged as such in the mission description on the slotting screen. : [color=#00FF00]X[/color]
+
+[/list]
+
+[u][color=#FF4000][size=150]NOTES From Tester :[/size][/color][/u] Here are my notes from testing.
+
+[/spoiler]
+
+[size=150][u][color=#00BFFF]Gear Checklist[/color][/u] [color=#00FF00]PASS[/color][/size]
+
+[spoiler=Gear Checklist + Notes]
+
+[list]
+
+[*]Ensure every soldier has the correct number of magazines/rockets. You can use the Pabst supply tool to get a good idea of this. (Hit Escape and go to the Admin tools. Run the Supply check. The readout will be placed in your briefing.) :  [color=#00FF00]X[/color]
+
+[*]Ensure soldiers have the correct radios and they're set to the right channel. : [color=#00FF00]X[/color]
+
+[*]Ensure the uniforms are what they should be. A lot of times updates will break classnames and soldiers will have default A3 uniforms. : [color=#00FF00]X[/color]
+
+[*]Ensure the uniforms are positive identification friendly. If you can't tell what team is which from 100m, there's probably a problem. : [color=#00FF00]X[/color]
+
+[*]Ensure every soldier type (I.E. FTL/AR/AAR/AT) has medical supplies. : [color=#00FF00]X[/color]
+
+[*]Check for soldiers with magnified optics, and make sure the mission maker has both A) Intended this and B) has properly balanced it. : [color=#00FF00]X[/color]
+
+[/list]
+
+[u][color=#FF4000][size=150]NOTES From Tester :[/size][/color][/u] Here are my notes from testing.
+
+[/spoiler]
+
+[size=150][u][color=#00BFFF]Vehicles Checklist[/color][/u] [color=#00FF00]PASS[/color][/size]
+
+[spoiler=Vehicles Checklist + Notes]
+
+[list]
+
+[*]Ensure vehicle gear is correct for the side using it (Mainly for COOPs), or removed (mainly for TvTs). :  [color=#00FF00]X[/color]
+
+[*]Ensure the vehicles are balanced (I.E. if one team has a BTR, one team has the AT to kill it, or if two teams are racing to an objectives, their vics go about the same speed). : [color=#00FF00]X[/color]
+
+[*]Ensure vehicles with weapons have their ammo balanced, (I.E. a Little Bird with 32 rockets is overkill vs infantry). : [color=#00FF00]X[/color]
+
+[/list]
+
+[u][color=#FF4000][size=150]NOTES From Tester :[/size][/color][/u] Here are my notes from testing.
+
+[/spoiler]
+
+[size=150][u][color=#00BFFF]COOP Checklist[/color][/u] [color=#00FF00]PASS[/color][/size]
+
+[spoiler=COOP Checklist + Notes]
+
+[list]
+
+[*]Talk to the Zeus/mission-maker about their intent. :  [color=#00FF00]X[/color]
+
+[*]Make sure the humans can kill whatever Zeus intends to spawn in. : [color=#00FF00]X[/color]
+
+[*]Make sure that no heavy scripts are killing server FPS/CPS. : [color=#00FF00]X[/color]
+
+[*]Talk about the objectives and make a call on if they are doable within the time frame of 75-80 minutes. Essentially is it likely that we will have all objectives completed or nearing completion around the 90 minute mark ([i]including[/i] Safe Start). : [color=#00FF00]X[/color]
+
+[/list]
+
+[u][color=#FF4000][size=150]NOTES From Tester :[/size][/color][/u] Here are my notes from testing.
+
+[/spoiler]
+
+[size=150][u][color=#00BFFF]Other Considerations Checklist[/color][/u] [color=#00FF00]PASS[/color][/size]
+
+[spoiler=Other Considerations Checklist + Notes]
+
+[list]
+
+[*]Ensure you're going to BW spectate on death. :  [color=#00FF00]X[/color]
+
+[/list]
+
+[u][color=#FF4000][size=150]NOTES From Tester :[/size][/color][/u] Here are my notes from testing.
+
+[/spoiler]
+
+[size=150][b][u]General Feedback from Mission Tester[/u][/b][/size] :
+
+This mission looks like it will be a lot of fun.

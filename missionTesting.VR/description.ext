@@ -1,0 +1,23 @@
+enableDebugConsole = 2;
+EnableTargetDebug = 1;
+allowFunctionsRecompile = 1;
+
+onLoadName = "bad_C40_missionChecklistDev_v1";
+#include "CfgLoadouts.hpp"
+#include "cfg\CfgEventHandlers.hpp"
+#include "cfg\Params.hpp"
+#include "cfg\ACE_Settings.hpp"
+#include "bad\cfgFunctions.hpp"
+respawnDelay = 5;
+bwmfDate = "2019/03/05";
+class CfgDebriefingSections {
+  class acex_killTracker {
+    title = "ACEX Killed Events";
+    variable = "acex_killTracker_outputText";
+  };
+};
+class mainMenu {
+	idd = 9999;
+	movingEnable = false;
+	enableSimulation = true;
+};
