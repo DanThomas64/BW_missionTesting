@@ -38,9 +38,21 @@
 #define TEXT_ORANGE [1,0.5,0,1]
 #define TEXT_RED [1,0,0,1]
 #define TEXT_BLUE [0,0.5,1,1]
-#define A_PASSFAIL ["FAIL","PASS"]
+#define A_PASSFAIL ["FAIL","PASS","NA"]
 #define A_CHECK ["X","O"]
 #define A_MISSION_TYPE ["COOP","TVT"]
 #define A_MISSION_TAGS ["None","NIGHT","DAWN","MSV","TvT1","TvT2","AH"]
 #define S_NEWTEXTLINE _textArray pushBack format
-
+#define S_NEWTEXTLINE_FORMATTEXT _textArray pushBack formattext
+#define MENU_DISPLAY (findDisplay 9999)
+#define CGMAINFRAME 1
+#define CGZBRIEFING 2
+#define CGSBRIEFING 3
+#define CGSPARE 4
+#define CTRLHORZ 0
+#define CTRLVERT 1
+#define BBTRUE "[color=#00FF00]X[/color]"
+#define BBFALSE "[color=#FF0000]O[/color]"
+#define BBPASS "[color=#00FF00]PASS[/color]"
+#define BBFAIL "[color=#FF0000]FAIL[/color]"
+#define BBNA "[color=#FFFF00]Not Applicable[/color]"

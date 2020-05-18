@@ -1,7 +1,4 @@
 #include "script_component.hpp"
-GVAR(groupHeight) = nil;
-GVAR(yStartCoord) = nil;
-GVAR(idcIndex) = nil;
 /*
 FUNCTION :
 DESCRIPTION :
@@ -11,23 +8,22 @@ OUTPUTS :
 FUNC(uiTile) = {
 	params["_array","_xStartPos","_yStartPos","_index","_hozVert","_group"];
 	TRACE_1("",_this);
-  TRACE_1("Start of Loop",GVAR(groupHeight));
-  private _display = findDisplay 9999;
+	TRACE_1("Start of Loop",GVAR(groupHeight));
 	private _yCoord = nil;
-  private _groupHeight = 0;
-  if (!isNil "_yStartPos") then {
-  _yCoord = _yStartPos;
-  GVAR(groupHeight) = 0;
-  GVAR(yStartCoord) = _yStartPos;
-  } else {
-    _yCoord = GVAR(yStartCoord) + GVAR(groupHeight);
-  };
-  if(!isNil "_index") then {
-    GVAR(idcIndex) = _index;
-  } else {
-    GVAR(idcIndex) = GVAR(idcIndex) + 1;
-  };
-  TRACE_1("",_yCoord);
+	private _groupHeight = 0;
+	if (!isNil "_yStartPos") then {
+	_yCoord = _yStartPos;
+	GVAR(groupHeight) = 0;
+	GVAR(yStartCoord) = _yStartPos;
+	} else {
+		_yCoord = GVAR(yStartCoord) + GVAR(groupHeight);
+	};
+	if(!isNil "_index") then {
+		GVAR(idcIndex) = _index;
+	} else {
+		GVAR(idcIndex) = GVAR(idcIndex) + 1;
+	};
+	TRACE_1("",_yCoord);
 	private _xCoord = _xStartPos;
 	{
 		_ctrlName = _x select 0;
@@ -36,38 +32,49 @@ FUNC(uiTile) = {
 		_ctrlHeight = _x select 3;
 		_ctrltext = _x select 4;
 		_ctrlfunction = _x select 5;
-    _eh = _x select 6;
-    _ctrlGroup = nil;
-    TRACE_1("Creating Ctrl",_ctrlName);
-		_idc = _forEachIndex + (10 * GVAR(idcIndex)) + 1000;
-      if(_hozVert == 1) then {
-        _xCoord;
-        _xCoord = _xStartPos;
-      };
-    if(_group > 0) then {
-      _ctrlGroup = _display displayCtrl (9990 + _group);
-    };
-		_ctrlCreate = _display ctrlCreate [_ctrlType,_idc,_ctrlGroup];
-		_ctrlCreate ctrlSetPosition [_xCoord,_yCoord,_ctrlWidth,_ctrlHeight];
-		[_ctrlType,_ctrlCreate,_ctrltext,_ctrlfunction,_idc,_eh] call FUNC(ctrlSwitch);
-		_ctrlPosition = ctrlPosition _ctrlCreate;
-		_stridc = str _idc + " at Position " + str _ctrlPosition;
-		UITOOLTIP(_ctrlCreate,_stridc);
-		_ctrlCreate ctrlCommit 0;
-    if(_hozVert == 1) then {
-      _yCoord = _yCoord + _ctrlHeight + 0.01;
-      _groupHeight = _groupHeight + _ctrlHeight + 0.01;
-    } else {
-		_xCoord = _xCoord + _ctrlWidth + 0.01;
-      if(_groupHeight<_ctrlHeight) then {
-        _groupHeight = _ctrlHeight + 0.01;
-      };
-    };
-    TRACE_1("",_groupHeight);
+		_eh = _x select 6;
+		_ctrlGroup = 0;
+		TRACE_1("Creating Ctrl",_ctrlName);
+		if(_ctrlType == "RscControlsGroup") then {
+			_idc = 9990 + _ctrlfunction;
+		} else {
+			_idc = _forEachIndex + (10 * GVAR(idcIndex)) + 1000;
+		};
+		if(_hozVert == 1) then {
+			_xCoord;
+			_xCoord = _xStartPos;
+		};
+		if(_group > 0) then {
+		_ctrlGroup = MENU_DISPLAY displayCtrl (9990 + _group);
+		};
+			private _ctrlCreate = MENU_DISPLAY ctrlCreate [_ctrlType,_idc,_ctrlGroup];
+			_ctrlCreate ctrlSetPosition [_xCoord,_yCoord,_ctrlWidth,_ctrlHeight];
+			[_ctrlType,_ctrlCreate,_ctrltext,_ctrlfunction,_idc,_eh] call FUNC(ctrlSwitch);
+			_ctrlPosition = ctrlPosition _ctrlCreate;
+			_stridc = str _idc + " at Position " + str _ctrlPosition;
+			UITOOLTIP(_ctrlCreate,_stridc);
+			_ctrlCreate ctrlCommit 0;
+			if (_ctrlType == "RscStructuredText") then {
+				if (!(_ctrltext == "")) then {
+				_ctrlHeight =  ctrlTextHeight _ctrlCreate;
+				_ctrlCreate ctrlSetPosition [_xCoord,_yCoord,_ctrlWidth,_ctrlHeight + 0.01];
+				_ctrlCreate ctrlCommit 0;
+				};
+			};
+		if(_hozVert == 1) then {
+			_yCoord = _yCoord + _ctrlHeight + 0.01;
+			_groupHeight = _groupHeight + _ctrlHeight + 0.01;
+		} else {
+			_xCoord = _xCoord + _ctrlWidth + 0.01;
+			if(_groupHeight<_ctrlHeight) then {
+				_groupHeight = _ctrlHeight + 0.01;
+			};
+		};
+		TRACE_1("",_groupHeight);
 	} forEach _array;
-  GVAR(groupHeight) = GVAR(groupHeight) + _groupHeight;
-  TRACE_1("End of Loop",GVAR(groupHeight));
-  TRACE_1("",GVAR(idcIndex));
+	GVAR(groupHeight) = GVAR(groupHeight) + _groupHeight;
+	TRACE_1("End of Loop",GVAR(groupHeight));
+	TRACE_1("",GVAR(idcIndex));
 };
 /*
 FUNCTION :
@@ -122,6 +129,9 @@ FUNC(ctrlSwitch) = {
 		};
 		case "RscEditMulti": {
 			[_ctrlCreate,_ctrltext,_ctrlfunction,_idc,_eh] call FUNC(BadEditMulti);
+		};
+		case "RscControlsGroup": {
+			[_ctrlCreate,_ctrltext,_ctrlfunction,_idc,_eh] call FUNC(BadControlsGroup);
 		};
 	};
 };
@@ -335,6 +345,18 @@ FUNC(BadEditMulti) = {
   _ctrlCreate ctrlSetText _ctrltext;
   _ctrlCreate ctrlSetBackgroundColor [1, 1, 1, 0.25];
   _ctrlCreate ctrlSetTextColor TEXT_BLUE;
+  if(count _eh > 0) then {
+  _ctrlCreate ctrlAddEventHandler _eh;
+  };
+};
+/*
+FUNCTION :
+DESCRIPTION :
+INPUTS :
+OUTPUTS :
+ */
+FUNC(BadControlsGroup) = {
+	params["_ctrlCreate","_ctrltext","_ctrlfunction","_idc","_eh"];
   if(count _eh > 0) then {
   _ctrlCreate ctrlAddEventHandler _eh;
   };

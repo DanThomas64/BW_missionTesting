@@ -12,7 +12,3 @@
 #include "..\core\script_macros.hpp"
 
 #define RECOMPILE
-
-/* #define MAINMENU 0
-#define SECONDMENU 1
- */

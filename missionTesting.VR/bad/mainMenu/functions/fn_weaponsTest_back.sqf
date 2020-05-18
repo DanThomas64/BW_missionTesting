@@ -144,54 +144,24 @@ FUNC(weaponsReport) = {
   [0] call FUNC(changeSideReport);
 };
 
-
-
 FUNC(changeSideReport) ={
 params["_side"];
-private _idc = [1021,1051,1053,1055,1060];
-private _situtation = nil;
-private _mission = nil;
-private _admin = nil;
-private _weaponsReport = nil;
-private _zuesIntent = getMissionConfigValue ["POTATO_BRIEFING_zeusintent", ""];
-// for _reportArray = ["zuesIntent","situtation","Mission","Admin","WeaponsReport"]
-private _reportArray = [];
-switch (_side) do {
+private _idc = 1020;
+private _ctrl =  (finddisplay 9999) displayCtrl _idc;
+private _text = nil;
+  switch (_side) do {
     case 0: {
-        _situtation = getMissionConfigValue ["POTATO_BRIEFING_briefWestSituation", ""];
-        _mission = getMissionConfigValue ["POTATO_BRIEFING_briefWestMission", ""];
-        _admin = getMissionConfigValue ["POTATO_BRIEFING_briefWestAdministration", ""];
-        _weaponsReport = GVAR(westClasses) joinString "<br/>";
+      _text = GVAR(westClasses) joinString "<br/>";
     };
     case 1: {
-        _situtation = getMissionConfigValue ["POTATO_BRIEFING_briefEastSituation", ""];
-        _mission = getMissionConfigValue ["POTATO_BRIEFING_briefEastMission", ""];
-        _admin = getMissionConfigValue ["POTATO_BRIEFING_brieEastAdministration", ""];
-        _weaponsReport = GVAR(eastClasses) joinString "<br/>";
+      _text = GVAR(eastClasses) joinString "<br/>";
     };
     case 2: {
-        _situtation = getMissionConfigValue ["POTATO_BRIEFING_briefIndependentSituation", ""];
-        _mission = getMissionConfigValue ["POTATO_BRIEFING_briefIndependentMission", ""];
-        _admin = getMissionConfigValue ["POTATO_BRIEFING_briefIndependentAdministration", ""];
-        _weaponsReport = GVAR(indyClasses) joinString "<br/>";
+      _text = GVAR(indyClasses) joinString "<br/>";
     };
     case 3: {
-        _situtation = getMissionConfigValue ["POTATO_BRIEFING_briefCivilianSituation", ""];
-        _mission = getMissionConfigValue ["POTATO_BRIEFING_briefCivilianMission", ""];
-        _admin = getMissionConfigValue ["POTATO_BRIEFING_briefCivilianAdministration", ""];
-        _weaponsReport = GVAR(civiClasses) joinString "<br/>";
+      _text = GVAR(civiClasses) joinString "<br/>";
     };
-};
-private _reportArray = [_zuesIntent,_situtation,_mission,_admin,_weaponsReport];
-{
-private _ctrl =  (finddisplay 9999) displayCtrl _x;
-private _text = _reportArray select _forEachIndex;
-_ctrl ctrlSetStructuredText parseText _text;
-_ctrl ctrlCommit 0;
-private _ctrlHeight = ctrlTextHeight _ctrl;
-private _ctrlPos = ctrlPosition _ctrl;
-_ctrlPos set [3,_ctrlHeight + 0.05];
-_ctrl ctrlSetPosition _ctrlPos;
-_ctrl ctrlCommit 0;
-}forEach _idc;
+  };
+_ctrl ctrlSetStructuredText parseText _text
 };
