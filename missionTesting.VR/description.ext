@@ -1,6 +1,6 @@
-enableDebugConsole = 2;
-EnableTargetDebug = 1;
-allowFunctionsRecompile = 1;
+//enableDebugConsole = 2;
+//EnableTargetDebug = 1;
+//allowFunctionsRecompile = 1;
 
 onLoadName = "bad_C40_missionChecklistDev_v1";
 #include "CfgLoadouts.hpp"
